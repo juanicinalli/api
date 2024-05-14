@@ -81,6 +81,8 @@ $ npm run start business
 
 ## Prueba de los endpoints
 
+1. Registro de usuarios
+
 ```bash
 [POST] http://localhost:3000/auth/register
 [Body]
@@ -89,12 +91,23 @@ $ npm run start business
     "password": "conexatest123"
 }
 
+```
+
+2. Autenticación
+
+```bash
+
 [POST] http://localhost:3000/auth/login
 [Body]
 {
     "email": "conexatest@gmail.com",
     "password": "conexatest123"
 }
+
+```
+3 y 4. Listar usuarios (Requiere JWT)
+
+```bash
 
 [GET] http://localhost:3000/user
 [params] 'page - limit - email'
