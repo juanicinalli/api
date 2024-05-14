@@ -26,48 +26,81 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Instalación
+
+1. Clona este repositorio en tu máquina local.
+2. Ejecuta el siguiente comando para instalar las dependencias:
 
 ```bash
-$ npm install
+
+npm install
+
+```
+## Configuración
+
+Ambos microservicios requieren ciertos parámetros de configuración para establecer conexiones y ajustes. Sigue estos pasos para configurar los microservicios:
+En el directorio raíz, crea un archivo .env basado en el archivo .env.example proporcionado en este repositorio. Llena las variables de entorno según tu configuración local
+
+```bash
+
+cp .env.example .env
+
+```
+
+## Ejecución con Docker Compose
+
+Para simplificar el despliegue de MongoDB, puedes utilizar Docker Compose. Sigue estos pasos para ejecutar los microservicios con Docker Compose:
+
+1. Asegúrate de tener Docker y Docker Compose instalados en tu sistema.
+
+2. En la raíz del proyecto, ejecuta el siguiente comando para iniciar el contenedor con algunos registros:
+
+```bash
+
+docker-compose up
+
 ```
 
 ## Running the app
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
+1. En una terminal, ejecuta el siguiente comando para iniciar el microservicio de "login":
 
 ```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+$ npm run start login
 
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+2.Abre otra terminal y ejecuta el siguiente comando para iniciar el microservicio de "business":
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
 
-## Stay in touch
+$ npm run start business
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
 
-## License
+## Prueba de los endpoints
 
-Nest is [MIT licensed](LICENSE).
+```bash
+[POST] http://localhost:3000/auth/register
+[Body]
+{
+    "email": "conexatest@gmail.com",
+    "password": "conexatest123"
+}
+
+[POST] http://localhost:3000/users/login
+[Body]
+{
+    "email": "conexatest@gmail.com",
+    "password": "conexatest123"
+}
+
+[GET] http://localhost:3000/user
+[params] 'page - limit - email'
+
+```
+
+
+
+
