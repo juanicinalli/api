@@ -61,7 +61,7 @@ docker-compose up
 
 ```
 
-## Running the app
+## Ejecutando las apps
 
 1. En una terminal, ejecuta el siguiente comando para iniciar el microservicio de "login":
 
@@ -89,7 +89,7 @@ $ npm run start business
     "password": "conexatest123"
 }
 
-[POST] http://localhost:3000/users/login
+[POST] http://localhost:3000/auth/login
 [Body]
 {
     "email": "conexatest@gmail.com",
